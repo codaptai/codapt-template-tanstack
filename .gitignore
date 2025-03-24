@@ -23,3 +23,7 @@ prod.env
 /playwright/.cache/
 
 src/routeTree.gen.ts
+
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
