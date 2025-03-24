@@ -5,6 +5,7 @@ yarn.lock
 .DS_Store
 .cache
 .env
+prod.env
 .vercel
 .output
 .vinxi
@@ -20,3 +21,5 @@ yarn.lock
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+src/routeTree.gen.ts
