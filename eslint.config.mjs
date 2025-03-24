@@ -21,6 +21,20 @@ export default defineConfig([
     rules: {
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/ban-ts-comment": "off",
+      "react/no-children-prop": "off",
+      "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+  {
+    ignores: [".vinxi/", ".output/", "src/routeTree.gen.ts"],
+  },
+  {
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
 ]);
