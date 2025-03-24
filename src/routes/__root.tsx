@@ -10,6 +10,7 @@ import * as React from "react";
 import { DefaultCatchBoundary } from "~/components/DefaultCatchBoundary";
 import { NotFound } from "~/components/NotFound";
 import appCss from "~/styles/app.css?url";
+import { TRPCReactProvider } from "~/trpc/react";
 import { seo } from "~/utils/seo";
 
 export const Route = createRootRoute({
@@ -65,7 +66,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <RootDocument>
-      <Outlet />
+      <TRPCReactProvider>
+        <Outlet />
+      </TRPCReactProvider>
     </RootDocument>
   );
 }
