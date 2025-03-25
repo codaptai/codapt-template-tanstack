@@ -12,6 +12,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
     npm install -g pnpm
 
-COPY package.json ./
+COPY package.json pnpm-lock*.yaml ./
 
 RUN pnpm install --production=false --ignore-scripts
