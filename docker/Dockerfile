@@ -12,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
     npm install -g pnpm
 
-COPY package.json pnpm-lock*.yaml ./
+COPY package.json pnpm-lock*.yaml prisma ./
 
 RUN pnpm install --production=false --ignore-scripts
+RUN pnpm exec prisma generate
