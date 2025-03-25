@@ -71,8 +71,20 @@ services:
       '
     working_dir: /app
     volumes:
-      - ..:/app
-      - node-modules:/app/node_modules/:nocopy
+      - ../.codapt:/app/.codapt
+      - ../.env:/app/.env
+      - ../.prettierignore:/app/.prettierignore
+      - ../app.config.ts:/app/app.config.ts
+      - ../eslint.config.mjs:/app/eslint.config.mjs
+      - ../package.json:/app/package.json
+      - ../postcss.config.mjs:/app/postcss.config.mjs
+      - ../prettier.config.mjs:/app/prettier.config.mjs
+      - ../prisma:/app/prisma
+      - ../public:/app/public
+      - ../src:/app/src
+      - ../tailwind.mjs:/app/tailwind.mjs
+      - ../tsconfig.json:/app/tsconfig.json
+
     env_file:
       - ../.env
 
@@ -81,7 +93,6 @@ volumes:
   redis-data:
   minio-data:
   htpasswd-data:
-  node-modules:
 
 configs:
   adminer-index.php:
