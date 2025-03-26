@@ -63,10 +63,10 @@ services:
       /usr/bin/tini -- bash -c '
         if [ "$NODE_ENV" = "development" ]; then
           echo "Running in development mode"
-          PORT=8001 npm run dev
+          PORT=8001 pnpm dev
         else
           echo "Running in production mode"
-          PORT=8001 npm run build && npm run start
+          PORT=8001 pnpm build && pnpm start
         fi
       '
     working_dir: /app
