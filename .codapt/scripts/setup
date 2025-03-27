@@ -9,4 +9,4 @@ cd .. # project root
 docker/compose down
 
 # install dependencies, generate prisma client, push schema
-docker/compose run --rm app bash -c "( NODE_ENV=development pnpm install --ignore-scripts ) && pnpm exec prisma generate && pnpm exec prisma db push --accept-data-loss"
+docker/compose run --rm app bash -c "( NODE_ENV=development pnpm install ) && pnpm exec prisma db push --accept-data-loss"
