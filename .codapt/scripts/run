@@ -8,7 +8,7 @@ cd .. # project root
 # Function to clean up containers
 cleanup() {
   echo "Cleaning up containers..."
-  docker/compose down
+  docker/compose down --remove-orphans
   echo "Containers stopped and removed"
   exit 0
 }

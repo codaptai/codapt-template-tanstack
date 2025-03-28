@@ -6,7 +6,10 @@ cd .. # .codapt
 cd .. # project root
 
 # stop all containers
-docker/compose down
+docker/compose down --remove-orphans
+
+# build
+docker/compose build
 
 # install dependencies, generate prisma client, push schema
 docker/compose run --rm app bash -c "( NODE_ENV=development pnpm install ) && pnpm exec prisma db push --accept-data-loss"
