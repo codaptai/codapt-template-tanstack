@@ -81,7 +81,7 @@ services:
           PORT=8001 pnpm dev
         else
           echo "Running in production mode"
-          pnpm build && PORT=8001 pnpm start
+          PORT=8001 pnpm start
         fi
       '
     working_dir: /app
