@@ -43,10 +43,25 @@ services:
     environment:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
 
+  adminer-init:
+    image: alpine:latest
+    volumes:
+      - adminer-permanent-login-key:/adminer-permanent-login-key-volume
+    command: >
+      sh -c '
+        if [ ! -f /adminer-permanent-login-key-volume/adminer-permanent-login-key ]; then
+          cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 > /adminer-permanent-login-key-volume/adminer-permanent-login-key
+          chmod 644 /adminer-permanent-login-key-volume/adminer-permanent-login-key
+        fi
+      '
+
   adminer:
     image: adminer:latest
     depends_on:
       - postgres
+      - adminer-init
+    volumes:
+      - adminer-permanent-login-key:/adminer-permanent-login-key-volume
     configs:
       - source: adminer-index.php
         target: /var/www/html/index.php
@@ -82,6 +97,7 @@ volumes:
   postgres-data:
   redis-data:
   minio-data:
+  adminer-permanent-login-key:
   htpasswd-cache:
   node-modules-cache:
 
@@ -93,7 +109,7 @@ configs:
       function adminer_object() {
         class AdminerSoftware extends Adminer\Adminer {
           function permanentLogin($$create = false) {
-            return '$ADMINER_PERMANENT_LOGIN_KEY';
+            return file_get_contents('/adminer-permanent-login-key-volume/adminer-permanent-login-key');
           }
 
           function credentials() {

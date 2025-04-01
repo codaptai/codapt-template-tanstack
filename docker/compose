@@ -57,8 +57,5 @@ if [ -z "$NODE_ENV" ]; then
   NODE_ENV=development
 fi
 
-# generate random ADMINER_PERMANENT_LOGIN_KEY without any external dependencies
-ADMINER_PERMANENT_LOGIN_KEY=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-
 # run docker compose with the args
-ADMINER_PERMANENT_LOGIN_KEY="$ADMINER_PERMANENT_LOGIN_KEY" docker compose -p "$APP_NAME" --env-file ../.env "$@"
+docker compose -p "$APP_NAME" --env-file ../.env "$@"
