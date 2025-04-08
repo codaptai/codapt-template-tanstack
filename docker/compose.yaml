@@ -28,9 +28,12 @@ services:
     ports:
       - "${PORT:-8000}:80"
     depends_on:
-      - app
-      - adminer
-      - htpasswd-generator
+      app:
+        condition: service_started
+      adminer:
+        condition: service_started
+      htpasswd-generator:
+        condition: service_completed_successfully
 
   htpasswd-generator:
     image: httpd:alpine
@@ -58,8 +61,10 @@ services:
   adminer:
     image: adminer:latest
     depends_on:
-      - postgres
-      - adminer-init
+      postgres:
+        condition: service_started
+      adminer-init:
+        condition: service_completed_successfully
     volumes:
       - adminer-permanent-login-key:/adminer-permanent-login-key-volume
     configs:
@@ -71,9 +76,12 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
     depends_on:
-      - redis
-      - postgres
-      - minio
+      redis:
+        condition: service_started
+      postgres:
+        condition: service_started
+      minio:
+        condition: service_started
     command: >
       /usr/bin/tini -- bash -c '
         if [ "$NODE_ENV" = "development" ]; then
