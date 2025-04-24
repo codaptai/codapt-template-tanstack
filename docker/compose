@@ -31,7 +31,7 @@ function add_to_env() {
 if [ -z "$ADMIN_PASSWORD" ]; then
   echo "ADMIN_PASSWORD is not set, generating and adding to .env..."
   # generate and add to the end of .env file
-  ADMIN_PASSWORD=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+  ADMIN_PASSWORD=$(dd bs=64 count=1 if=/dev/urandom 2>/dev/null | base64 | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
   add_to_env "ADMIN_PASSWORD=$ADMIN_PASSWORD"
 fi
 

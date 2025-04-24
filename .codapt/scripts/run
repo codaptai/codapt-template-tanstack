@@ -18,7 +18,10 @@ trap cleanup SIGINT SIGTERM
 
 # Run in attached mode (not detached)
 # This will show logs and allow Ctrl-C to stop the containers
-docker/compose up
+docker/compose up &
+
+# This allows signals to properly be handled by trap
+wait $!
 
 # If docker compose up exits normally, still run cleanup
 cleanup
