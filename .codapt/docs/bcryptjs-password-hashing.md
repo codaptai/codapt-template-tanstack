@@ -1,4 +1,4 @@
-We can use the bcryptjs library to hash and verify passwords.
+We can use the bcryptjs library version `^3.0.2` to hash and verify passwords.
 
 ```
 import bcryptjs from "bcryptjs";

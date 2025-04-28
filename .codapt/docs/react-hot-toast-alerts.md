@@ -1,4 +1,4 @@
-We can use react-hot-toast to show pop-up alerts (toasts) as in the following example:
+We can use `react-hot-toast` version `^2.5.2` to show pop-up alerts (toasts) as in the following example:
 
 ```
 import toast from "react-hot-toast";

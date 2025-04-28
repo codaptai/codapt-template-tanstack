@@ -1,4 +1,4 @@
-We use `react-hook-form` and `@hookform/resolvers/zod` for form handling.
+We use `react-hook-form` version `^7.56.1` and `@hookform/resolvers/zod` version `^5.0.1` for form handling.
 
 Example of a form:
 

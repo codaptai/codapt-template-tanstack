@@ -1,3 +1,5 @@
+We can use `zustand` version `^5.0.3`.
+
 ## First create a store
 
 Your store is a hook!
