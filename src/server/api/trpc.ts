@@ -70,4 +70,4 @@ export const createCallerFactory = t.createCallerFactory;
  */
 export const createTRPCRouter = t.router;
 
-export const procedure = t.procedure;
+export const baseProcedure = t.procedure;
