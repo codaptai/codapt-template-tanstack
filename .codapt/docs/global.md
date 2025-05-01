@@ -14,3 +14,7 @@ Whenever possible, try to break up large pages/components into smaller component
 When storing data like auth tokens, we should use Zustand Persist.
 
 You can import from `src/...` with the alias `~/...`.
+
+Never use headers with tRPC. Pass all data, including authentication tokens, as parameters. We can significantly reduce complexity of our codebase by avoiding middleware.
+
+For our frontend, we use a modern, clean tech-startup aesthetic with a blue-purple gradient color scheme.
