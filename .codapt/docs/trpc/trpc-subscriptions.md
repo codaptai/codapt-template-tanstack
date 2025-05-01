@@ -18,6 +18,8 @@ export const someSubscriptionProcedure = baseProcedure
   });
 ```
 
+Always use async generator functions for subscriptions! Observables are no longer acceptable as tRPC subscriptions.
+
 Here's hwo you can consume it in the React client:
 
 ```
