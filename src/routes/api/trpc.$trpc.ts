@@ -26,7 +26,7 @@ const handler = async ({ request }: { request: Request }) => {
   return response;
 };
 
-const optionsHandler = async ({ request }: { request: Request }) => {
+const optionsHandler = async ({ request: _request }: { request: Request }) => {
   const response = new Response();
   setCorsHeaders(response);
   return response;

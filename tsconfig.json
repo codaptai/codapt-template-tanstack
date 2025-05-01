@@ -1,5 +1,12 @@
 {
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/*.js",
+    "**/*.jsx"
+  ],
   "compilerOptions": {
     "strict": true,
     "noUncheckedIndexedAccess": true,
