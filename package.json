@@ -30,7 +30,7 @@
     "react-dom": "^19.0.0",
     "superjson": "^2.2.2",
     "tailwind-merge": "^2.6.0",
-    "vinxi": "0.5.3",
+    "vinxi": "0.5.6",
     "zod": "^3.24.2"
   },
   "devDependencies": {
