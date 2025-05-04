@@ -1,6 +1,6 @@
 import { defineConfig } from "@tanstack/react-start/config";
 import tsConfigPaths from "vite-tsconfig-paths";
-import { env } from "./src/utils/env";
+import { env } from "./src/env";
 
 export default defineConfig({
   tsr: {
